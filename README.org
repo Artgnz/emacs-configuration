@@ -1,5 +1,5 @@
 * My Emacs configuration
-This repository contains my literate configuration for Emacs in the file ~config.org~. Some private parts are missing, however, most of my configuration is included.
+This repository contains my literate configuration for Emacs in the file ~init.org~. Some private parts are missing, however, most of my configuration is included.
 ** Emacs version
 GNU Emacs 28.2 (build 2, x86_64-apple-darwin20.6.0, NS appkit-2202.70 Version 11.6.8 (Build 20G730)) of 2023-06-11
 ** OS
