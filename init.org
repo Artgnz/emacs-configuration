@@ -593,6 +593,11 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
     (interactive)
     (shell-command "open -a terminal ."))
 #+end_src
+** Disk usage
+#+begin_src emacs-lisp
+  (use-package disk-usage
+    :straight (disk-usage :type git :fetcher gitlab :repo "https://gitlab.com/ambrevar/emacs-disk-usage"))
+#+end_src
 * PDF
 ** PDF-tools
 #+begin_src emacs-lisp
@@ -678,7 +683,6 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
   (put 'set-goal-column 'disabled nil)
   (put 'narrow-to-region 'disabled nil)
 #+end_src
-fds
 * Runtime Performance
 #+begin_src emacs-lisp
 
