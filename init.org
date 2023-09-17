@@ -114,10 +114,11 @@
 #+end_src
 * Keybinding Configuration
 #+begin_src emacs-lisp
-  (setq mac-option-modifier 'super)
-  (setq mac-command-modifier 'meta)
-  (setq ns-right-alternate-modifier 'none)
-  (setq ns-function-modifier 'hyper)
+  (when (eq system-type 'darwin)
+    (setq mac-option-modifier 'super)
+    (setq mac-command-modifier 'meta)
+    (setq ns-right-alternate-modifier 'none)
+    (setq ns-function-modifier 'hyper))
 #+end_src
 
 * Theme
