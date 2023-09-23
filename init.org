@@ -191,6 +191,10 @@
   (global-set-key (kbd "M-u") 'upcase-dwim)
   (global-set-key (kbd "M-c") 'capitalize-dwim)
 #+end_src
+*** Parentheses
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-M-o") 'up-list)
+#+end_src
 *** Other
 #+begin_src emacs-lisp
   (global-set-key (kbd "<down>") (lambda () (interactive) (scroll-down -1)))
