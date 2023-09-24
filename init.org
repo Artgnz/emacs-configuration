@@ -587,7 +587,8 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
     :bind (:map locate-mode-map
                 ("/" . dired-narrow))
     :config
-    (setq locate-command "mdfind"))
+    (when (eq system-type 'darwin)
+      (setq locate-command "mdfind")))
 #+end_src
 
 ** Terminals
