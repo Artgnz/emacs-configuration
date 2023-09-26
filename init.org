@@ -528,8 +528,8 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
   (use-package recentf
     :ensure nil
     :config
-    (setq recentf-max-saved-items 200
-          recentf-max-menu-items 200)
+    (setq recentf-max-saved-items 225
+          recentf-max-menu-items 225)
     (add-to-list 'recentf-exclude no-littering-var-directory)
     (add-to-list 'recentf-exclude no-littering-etc-directory)
     (recentf-mode t)
@@ -603,6 +603,12 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
 #+begin_src emacs-lisp
   (use-package disk-usage
     :straight (disk-usage :type git :fetcher gitlab :repo "https://gitlab.com/ambrevar/emacs-disk-usage"))
+#+end_src
+** MPV
+*** Media-progress
+#+begin_src emacs-lisp
+  (use-package media-progress-dired
+    :hook (dired-mode . media-progress-dired-mode))
 #+end_src
 * PDF
 ** PDF-tools
