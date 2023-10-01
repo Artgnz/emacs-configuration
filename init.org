@@ -14,7 +14,8 @@
 #+end_src
 * Server
 #+begin_src emacs-lisp
-  (server-start)
+  (unless (server-running-p)
+    (server-start))
 #+end_src
 * Package Management
 ** Package initialization
@@ -607,8 +608,8 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
 ** MPV
 *** Media-progress
 #+begin_src emacs-lisp
-  (use-package media-progress-dired
-    :hook (dired-mode . media-progress-dired-mode))
+  ;; (use-package media-progress-dired
+  ;;   :hook (dired-mode . media-progress-dired-mode))
 #+end_src
 * PDF
 ** PDF-tools
@@ -677,7 +678,7 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
 * Scratch Buffer
 ** Scratch Message
 #+begin_src emacs-lisp
-  (setq-default initial-scratch-message ";; The enjoyment of one's tools is an essential ingredient of succesful work.\n;;-Donald Knuth\n\n")
+  (setq-default initial-scratch-message ";; The enjoyment of one's tools is an essential ingredient of succesful work.\n;; -Donald Knuth\n\n")
 #+end_src
 ** Switch to scratch buffer
 #+begin_src emacs-lisp
