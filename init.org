@@ -140,8 +140,7 @@
      ([remap describe-symbol] . helpful-symbol)
      ([remap describe-variable] . helpful-variable)
      ([remap describe-command] . helpful-command)
-     ([remap describe-key] . helpful-key))
-    )
+     ([remap describe-key] . helpful-key)))
 #+end_src
 ** Dim distracting
 *** Solaire-mode
@@ -214,10 +213,7 @@
     :init
     (vertico-mode)
     :bind (:map vertico-map
-                ("M-i"     . vertico-insert))
-
-    )
-
+                ("M-i"     . vertico-insert)))
 #+end_src
 **** Marginalia
 #+begin_src emacs-lisp
@@ -235,8 +231,7 @@
            ("C-c F" . agp/recent-directory)
            ("C-x b" . consult-buffer)
            ([remap yank-pop] . consult-yank-pop)
-           ([remap goto-line] . consult-goto-line)
-           )
+           ([remap goto-line] . consult-goto-line))
     :config
     (add-hook 'eshell-mode-hook (lambda () (setq outline-regexp eshell-prompt-regexp)))
     :init
@@ -283,14 +278,12 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
            ("C-c r" . crux-rename-file-and-buffer)
            ("C-c S" . crux-find-shell-init-file)
            ("C-c P" . crux-kill-buffer-truename)
-           ("C-c i" . crux-ispell-word-then-abbrev)
-           )
+           ("C-c i" . crux-ispell-word-then-abbrev))
     :config
     (crux-with-region-or-buffer indent-region)
     (crux-with-region-or-buffer untabify)
     (crux-with-region-or-line comment-or-uncomment-region)
-    (crux-with-region-or-line kill-region)
-    )
+    (crux-with-region-or-line kill-region))
 #+end_src
 
 ** Quotes & Parenthesis & Delimiters Handling
@@ -322,8 +315,7 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
     (smartparens-global-mode)
     (require 'smartparens-config)
     (sp-pair "¿" "?")
-    (sp-pair "¡" "!")
-    )
+    (sp-pair "¡" "!"))
 #+end_src
 *** Select
 **** Expand-region
@@ -346,7 +338,7 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
   (use-package move-dup
     :hook((prog-mode . move-dup-mode)
           (LaTeX-mode . move-dup-mode)))
-#+End_Src
+#+end_Src
 ** Pretty icons
 *** All-the-icons
 #+begin_src emacs-lisp
@@ -373,8 +365,7 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
           ("M-." . embark-dwim)
           ("C-h B" . embark-bindings)
           :map embark-url-map
-          ("m" . mpv-play-url)
-          )
+          ("m" . mpv-play-url))
     :init
     (setq prefix-help-command #'embark-prefix-help-command))
 #+end_src
@@ -450,13 +441,12 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
     :commands (devdocs-lookup)
     :bind (:map prog-mode-map
                 ("C-c d" . devdocs-lookup))
-    :config
+    :init
     (add-hook 'python-mode-hook
               (lambda () (setq-local devdocs-current-docs '("python~3.11"))))
 
     (add-hook 'c++-mode-hook
-              (lambda () (setq-local devdocs-current-docs '("cpp" "gcc~12_cpp"))))
-    )
+              (lambda () (setq-local devdocs-current-docs '("cpp" "gcc~12_cpp")))))
 #+end_src
 ** Completion
 *** Abbrev
@@ -474,8 +464,7 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
     :config
     (require 'tree-sitter-langs)
     (global-tree-sitter-mode)
-    (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
-    )
+    (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 #+end_src
 ** Completion
 *** Company
@@ -493,8 +482,7 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
     (company-show-quick-access t)
     (company-dabbrev-other-buffers t)
     :config
-    (setq company-clang-arguments '("-std=c++17"))
-    )
+    (setq company-clang-arguments '("-std=c++17")))
 #+end_src
 *** Abbrev
 #+begin_src emacs-lisp
@@ -505,8 +493,7 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
 #+begin_src emacs-lisp
   (use-package image
     :ensure nil
-    :hook ((image-mode . image-transform-fit-to-width))
-    )
+    :hook ((image-mode . image-transform-fit-to-width)))
 #+end_src
 
 * Recent
@@ -520,8 +507,7 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
     (savehist-mode)
     (setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring avy-ring register-alist
                                                     vertico-repeat-history kmacro-ring))
-    (load-file savehist-file)
-    )
+    (load-file savehist-file))
 
 #+end_src
 ** Recentf
@@ -534,8 +520,7 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
           recentf-max-menu-items 225)
     (add-to-list 'recentf-exclude no-littering-var-directory)
     (add-to-list 'recentf-exclude no-littering-etc-directory)
-    (recentf-mode t)
-    )
+    (recentf-mode t))
 
 #+end_src
 ** Save-place-mode
@@ -612,6 +597,12 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
   ;; (use-package media-progress-dired
   ;;   :hook (dired-mode . media-progress-dired-mode))
 #+end_src
+** Eshell
+*** Eshell-up
+#+begin_src emacs-lisp
+  (use-package eshell-up
+    :after eshell)
+#+end_src
 * PDF
 ** PDF-tools
 #+begin_src emacs-lisp
@@ -620,13 +611,11 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
     :mode ("\\.pdf\\'" . pdf-tools-install)
     :bind (:map pdf-view-mode-map
                 ("j" . pdf-view-next-line-or-next-page)
-                ("k" . pdf-view-previous-line-or-previous-page)
-                )
+                ("k" . pdf-view-previous-line-or-previous-page))
     :custom
     (pdf-view-resize-factor 1.05)
     :config
-    (setq-default pdf-view-display-size 'fit-page)
-    )
+    (setq-default pdf-view-display-size 'fit-page))
 #+end_src
 ** pdf-view-restore
 #+begin_src emacs-lisp
