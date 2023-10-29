@@ -24,8 +24,8 @@
   (require 'package)
 
   (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                           ("elpa" . "https://elpa.gnu.org/packages/")))
-
+                           ("elpa" . "https://elpa.gnu.org/packages/")
+                           ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
   (package-initialize)
 
   (unless package-archive-contents
@@ -230,6 +230,7 @@
            ("C-c f" . consult-recent-file)
            ("C-c F" . agp/recent-directory)
            ("C-x b" . consult-buffer)
+           ("M-g o" . consult-outline)
            ([remap yank-pop] . consult-yank-pop)
            ([remap goto-line] . consult-goto-line))
     :config
@@ -611,7 +612,9 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
     :mode ("\\.pdf\\'" . pdf-tools-install)
     :bind (:map pdf-view-mode-map
                 ("j" . pdf-view-next-line-or-next-page)
-                ("k" . pdf-view-previous-line-or-previous-page))
+                ("k" . pdf-view-previous-line-or-previous-page)
+                ([remap scroll-up-command] . #'pdf-view-scroll-up-or-next-page)
+                ([remap scroll-down-command] . #'pdf-view-scroll-down-or-previous-page))
     :custom
     (pdf-view-resize-factor 1.05)
     :config
@@ -676,6 +679,12 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
     (interactive)
     (switch-to-buffer "*scratch*"))
   (global-set-key (kbd "C-c s") 'switch-to-scratch-buffer)
+#+end_src
+** Everlasting scratch
+#+begin_src emacs-lisp
+  (use-package everlasting-scratch
+    :init
+    (everlasting-scratch-mode))
 #+end_src
 * Enable disabled commands
 #+begin_src emacs-lisp
