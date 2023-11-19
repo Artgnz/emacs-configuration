@@ -445,6 +445,11 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
     :init
     (add-hook 'python-mode-hook
               (lambda () (setq-local devdocs-current-docs '("python~3.11"))))
+    (add-hook 'go-mode-hook
+              (lambda () (setq-local devdocs-current-docs '("go"))))
+
+    (add-hook 'sql-mode-hook
+              (lambda () (setq-local devdocs-current-docs '("postgresql~15"))))
 
     (add-hook 'c++-mode-hook
               (lambda () (setq-local devdocs-current-docs '("cpp" "gcc~12_cpp")))))
@@ -478,7 +483,7 @@ A Collection of Ridiculously Useful eXtensions for Emacs.
            ("C-j" . company-select-next-or-abort)
            ("C-k" . company-select-previous-or-abort))
     :custom
-    (company-minimum-prefix-length 1)
+    (company-minimum-prefix-length 2)
     (company-idle-delay 0.1)
     (company-show-quick-access t)
     (company-dabbrev-other-buffers t)
