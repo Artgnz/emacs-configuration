@@ -1,6 +1,6 @@
 * My Emacs configuration
 This repository contains my literate configuration for Emacs in the file ~init.org~. Some private parts are missing, however, most of my configuration is included.
 ** Emacs version
-GNU Emacs 28.2 (build 2, x86_64-apple-darwin20.6.0, NS appkit-2202.70 Version 11.6.8 (Build 20G730)) of 2023-06-11
+GNU Emacs 29.1 (build 2, x86_64-apple-darwin20.6.0, NS appkit-2022.70 Version 11.7.10 (Build 20G1427)) of 2023-12-09
 ** OS
 macOS Big Sur
